@@ -1,0 +1,17 @@
+header
+  .top-bar
+    .top-bar-left
+      ul.dropdown.menu data-dropdown-menu="" 
+        li.menu-text Placements
+        li = link_to t('main.home'), root_path
+        - if current_user
+          li = link_to t('main.sign_out'), sign_out_users_path
+        - else
+          li = link_to t('main.sign_in'), sign_in_users_path
+          li = link_to t('main.sign_up'), sign_up_users_path
+    .top-bar-right
+      ul.menu
+        li
+          input placeholder="Search" type="search" /
+        li
+          button.button type="button"  Search

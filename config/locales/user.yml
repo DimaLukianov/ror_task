@@ -1,0 +1,14 @@
+en:
+  user:
+    sign_up_success: Registration was successful! Please login!
+    first_name: First name
+    last_name: Last name
+    email: E-mail
+    password: Password
+    password_confirmation: Password confirmation
+    create: Register
+    registartion: Registration
+    auth_success: You have successfully signed in!
+    auth_error: Email or password is incorrect!
+    sign_in: Sign In
+    sign_out_success: You have successfully signed out!
