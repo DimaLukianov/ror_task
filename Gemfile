@@ -25,6 +25,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'slim'
 gem 'foundation-rails'
+# image resizing
+gem 'mini_magick'
+# image uploading
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
