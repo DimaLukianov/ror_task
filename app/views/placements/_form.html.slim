@@ -1,0 +1,25 @@
+= form_for @placement do |f|
+  .row.align-center
+    .small-12.medium-8.large-6.columns
+      = render 'partials/errors', resource: @placement
+      br
+      
+  .row.align-center
+    .small-8.medium-5.large-4.columns
+      = f.number_field :price, step: 0.1, placeholder: t('placement.price')
+    .small-4.medium-3.large-2.columns
+      = f.select :currency, options_for_select(Placement.currencies.keys.map { |k| [k.to_s.upcase, k] })
+  .row.align-center
+    .small-12.medium-8.large-6.columns
+      = f.text_field :title, placeholder: t('placement.title')
+  .row.align-center
+    .small-12.medium-8.large-6.columns
+      = f.text_area :description, placeholder: t('placement.description')
+  .row.align-center
+    .small-12.medium-8.large-6.columns
+      = f.label :image    
+      = f.file_field :image
+  .row.align-center
+    .small-12.medium-8.large-6.columns.text-center
+      = f.submit t('buttons.submit'), class: 'button'
+    

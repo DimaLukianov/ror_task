@@ -1,6 +1,2 @@
-- if flash[:notice]
-  = callout('success', 'Success!', flash[:notice]) 
-- if flash[:alert]
-  = callout('alert', 'Error!', flash[:alert])
-- if flash[:warning]
-  = callout('warning', 'Warning!', flash[:warning])
+- flash.each do |type, msg|
+  = callout(type, msg) 

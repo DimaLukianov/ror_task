@@ -1,0 +1,5 @@
+- if resource.errors.any?
+  - resource.errors.each do |title, msg|
+    .error-msg
+      b = title
+      span = ': ' + msg 

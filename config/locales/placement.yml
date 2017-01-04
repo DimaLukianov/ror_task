@@ -1,0 +1,9 @@
+en:
+  placement:
+    created: Placement successfully created!
+    updated: Placement successfully updated!
+    deleted: Placement successfully deleted!
+    title: Title
+    description: Description
+    price: Price
+    new_title: New placement

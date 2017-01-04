@@ -11,6 +11,9 @@ html lang="en"
     = csrf_meta_tag
 
   body
+    = render 'partials/notifications'
+      
     .row.align-middle.align-center.auth-cont
       .small-12.medium-8.large-6.columns.text-center
+        
         == yield

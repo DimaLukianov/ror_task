@@ -1,12 +1,8 @@
 h1.auth-title = t('user.registartion')
 = form_for @user do |f|
   .row.align-center
-    .small-12
-      - if @user.errors.any?
-        - @user.errors.each do |title, msg|
-          .error-msg
-            b = title
-            span = ': ' + msg 
+    .small-12.columns
+      = render 'partials/errors', resource: @user
             
   .row.align-center
     .small-12.columns

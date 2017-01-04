@@ -1,4 +1,5 @@
 class PlacementsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_placement, only: %i[ show edit destroy update ]
 
   def index
@@ -14,15 +15,36 @@ class PlacementsController < ApplicationController
   end
 
   def create
+    @placement = Placement.new(placement_params)
+
+    if @placement.save
+      redirect_to placement_path(@placement), flash: {
+        success: {
+          description: I18n.t('placement.created'),
+        }
+      }
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    if @placement.update(placement_params)
+      redirect_to placement_path(@placement), notice: I18n.t('placement.updated')
+    else
+      render :edit
+    end
   end
 
   def destroy
+    if @placement.destroy
+      redirect_to placements_path, notice: I18n.t('placement.deleted')
+    else
+      redirect_to placement_path(@placement), alert: I18n.t('placement.delete_error')
+    end
   end
 
 private
@@ -35,7 +57,8 @@ private
       :title,
       :description,
       :price,
+      :currency,
       {images: []}
-    )
+    ).merge(user_id: current_user.id)
   end
 end
