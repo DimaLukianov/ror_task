@@ -7,3 +7,6 @@ en:
     description: Description
     price: Price
     new_title: New placement
+    edit_title: Edit placement
+    gallery: GALLERY
+    delete_confirm_text: You really want delete this placement?

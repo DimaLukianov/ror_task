@@ -15,4 +15,16 @@ class Placement < ApplicationRecord
   def initial
     title[0].upcase
   end
+
+  def primary_image
+    images[0] if images.any?
+  end
+
+  def secondary_images
+    images.length > 1 ? images[1..-1] : []
+  end
+
+  def secondary_images?
+    images.length > 1
+  end
 end

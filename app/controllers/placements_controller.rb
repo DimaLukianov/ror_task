@@ -1,6 +1,6 @@
 class PlacementsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_placement, only: %i[ show edit destroy update ]
+  before_action :set_placement, only: %i[ edit destroy update ]
 
   def index
     # TODO: add pagination
@@ -8,6 +8,7 @@ class PlacementsController < ApplicationController
   end
 
   def show
+    @placement = Placement.find_by_id(params[:id])
   end
 
   def new
@@ -20,7 +21,7 @@ class PlacementsController < ApplicationController
     if @placement.save
       redirect_to placement_path(@placement), flash: {
         success: {
-          description: I18n.t('placement.created'),
+          message: I18n.t('placement.created'),
         }
       }
     else
@@ -33,7 +34,9 @@ class PlacementsController < ApplicationController
 
   def update
     if @placement.update(placement_params)
-      redirect_to placement_path(@placement), notice: I18n.t('placement.updated')
+      redirect_to placement_path(@placement), flash: {
+        success: { message: I18n.t('placement.updated') }
+      }
     else
       render :edit
     end
@@ -41,7 +44,7 @@ class PlacementsController < ApplicationController
 
   def destroy
     if @placement.destroy
-      redirect_to placements_path, notice: I18n.t('placement.deleted')
+      redirect_to placements_path, flash: { success: I18n.t('placement.deleted') }
     else
       redirect_to placement_path(@placement), alert: I18n.t('placement.delete_error')
     end
@@ -49,7 +52,7 @@ class PlacementsController < ApplicationController
 
 private
   def set_placement
-    @placement = Placement.find_by_id(params[:id])
+    @placement = current_user.placements.find_by_id(params[:id])
   end
 
   def placement_params

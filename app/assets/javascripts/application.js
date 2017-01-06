@@ -13,9 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require jquery.mousewheel.min
+//= require lightgallery.min
+//= require lg-zoom.min
 //= require turbolinks
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
   $(document).foundation();
+  $("#gallery").lightGallery({
+    selector: '.image',
+    zoom: true
+  });
 })

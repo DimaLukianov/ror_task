@@ -1,0 +1,11 @@
+.reveal data-reveal="" id="#{id}"
+  .row
+    .small-12.columns.text-center
+      h3 = t('confirmation')
+      p = text
+    .small-12.medium-6.columns.text-center
+      a.button.alert.hollow data-close="" = t('buttons.cancel')
+    .small-12.medium-6.columns.text-center
+      = link_to t('buttons.delete'), link_url, method: :delete, class: 'button alert'
+  button.close-button aria-label=("Close modal") data-close="" type="button" 
+    span aria-hidden="true" ×
