@@ -4,9 +4,17 @@ en:
     updated: Placement successfully updated!
     deleted: Placement successfully deleted!
     title: Title
+    location: Location
     description: Description
     price: Price
     new_title: New placement
     edit_title: Edit placement
     gallery: GALLERY
     delete_confirm_text: You really want delete this placement?
+
+    errors:
+      already_exist: this placement already exist
+      add_comment: You can add comment for this placement
+      show_placement: show placement
+      images_count: the number of pictures should be from %{min} to %{max}
+      images_size: You cannot upload a image greater than %{max}

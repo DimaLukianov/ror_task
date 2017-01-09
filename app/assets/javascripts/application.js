@@ -16,8 +16,9 @@
 //= require jquery.mousewheel.min
 //= require lightgallery.min
 //= require lg-zoom.min
+//= require geocomplete
 //= require turbolinks
-//= require_tree .
+//= require placements
 
 document.addEventListener("turbolinks:load", function() {
   $(document).foundation();

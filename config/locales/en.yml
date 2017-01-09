@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  error: Error
   hello: "Hello world"
   errors:
     authenticate: You must sign in!

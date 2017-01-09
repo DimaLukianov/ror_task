@@ -16,6 +16,12 @@
     h1 = price(@placement)
     h2 = @placement.title
     p = @placement.description
+    -if @placement.formatted_address
+      #map.map.large
+      p = @placement.formatted_address
+      = hidden_field_tag :location, @placement.formatted_address, id: 'location_autocomplete'
+      = hidden_field_tag :lat, @placement.lat, data: { geo: 'lat' }
+      = hidden_field_tag :lng, @placement.lng, data: { geo: 'lng' }
 
 - if @placement.secondary_images?  
   .row#gallery

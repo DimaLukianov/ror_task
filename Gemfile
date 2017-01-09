@@ -30,6 +30,8 @@ gem 'mini_magick'
 # image uploading
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
+gem 'geocomplete_rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

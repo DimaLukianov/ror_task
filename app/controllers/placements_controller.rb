@@ -25,6 +25,18 @@ class PlacementsController < ApplicationController
         }
       }
     else
+      if @placement.errors.details[:lat] &&
+         @placement.errors.details[:lat].length > 0 &&
+         @placement.errors.details[:lat][0][:error] == :taken
+        flash.now[:alert] = {
+          title: I18n.t('error'),
+          message: I18n.t('placement.errors.add_comment'),
+          link: {
+            title: I18n.t('placement.errors.show_placement'),
+            url: placement_url(Placement.find_by(lat: @placement.lat, lng: @placement.lng ))
+          }
+        }
+      end
       render :new
     end
   end
@@ -61,6 +73,14 @@ private
       :description,
       :price,
       :currency,
+      :formatted_address,
+      :street_number,
+      :route,
+      :locality,
+      :region,
+      :country,
+      :lat,
+      :lng,
       {images: []}
     ).merge(user_id: current_user.id)
   end
