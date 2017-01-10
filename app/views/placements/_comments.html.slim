@@ -1,0 +1,42 @@
+- if @placement.comments.any?
+  .row.column.text-center
+    h3 = t('comments')
+  - @placement.comments.each do |comment|
+    .row.comment
+      .small-12.medium-4.large-2.columns.text-center
+        .initial
+          = comment.user.initial
+      .small-12.medium-8.large-10.columns
+        .row
+          .small-12.medium-6.columns
+            b.user-name = comment.user.full_name
+          .small-12.medium-6.columns.text-right
+            i.time.comment-date = comment.created_at.try(:strftime, '%H:%M:%S %d.%m.%Y')
+            - if current_user && current_user.has_comment?(comment)
+              = link_to 'x', comment_path(comment), method: :delete,
+                  data: { confirm: t('confirm')}, class: 'delete-comment'
+          
+        p = comment.body
+        
+        .row.gallery
+          - comment.images.each do |image|
+            .small-4.medium-3.large-2.columns.text-center.image data-src="#{image.url}"
+              = image_tag image.thumb_small, alt: ''
+
+        
+      .small-12.columns
+        hr
+      
+  - if current_user
+    = form_for @placement.comments.build do |f|
+      = f.hidden_field :placement_id
+      .row
+        .small-12.columns
+          = f.text_area :body, placeholder: t('placement.comment')
+      .row
+        .small-12.columns
+          = f.file_field :images, multiple: true
+      
+      .row
+        .small-12.columns.text-center
+          = f.submit t('buttons.add'), class: 'button'

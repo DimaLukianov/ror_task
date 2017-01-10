@@ -24,10 +24,13 @@
       = hidden_field_tag :lng, @placement.lng, data: { geo: 'lng' }
 
 - if @placement.secondary_images?  
-  .row#gallery
+  .row.gallery
     .small-12.columns.text-center
       h3 = t('placement.gallery')
       hr
     - @placement.images.each do |image|
       .small-6.medium-4.large-3.columns.image data-src="#{image.url}"
         = image_tag image.thumb_medium, alt: @placement.title
+        
+  .small-12.columns
+    = render 'comments'

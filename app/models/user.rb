@@ -10,4 +10,16 @@ class User < ApplicationRecord
   def has_placement?(placement)
     placements.find_by_id(placement.id)
   end
+
+  def has_comment?(comment)
+    comments.find_by_id(comment.id)
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def initial
+    first_name ? first_name[0].upcase : 'U'
+  end
 end

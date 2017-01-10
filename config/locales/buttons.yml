@@ -1,6 +1,7 @@
 en:
   buttons:
     submit: Create
+    add: Add
     save: Save
     cancel: Cancel
     delete: Delete

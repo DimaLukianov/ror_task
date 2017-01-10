@@ -22,6 +22,7 @@
 en:
   error: Error
   hello: "Hello world"
+  confirm: Are you sure?
   errors:
     authenticate: You must sign in!
   confirmation: Are you sure?

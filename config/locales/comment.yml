@@ -1,0 +1,7 @@
+en:
+  comment:
+    deleted: Your comment successfully deleted!
+    delete_error: Something went wrong!
+    undefined: Your comment not found!
+    create_error: Incorrect data!
+    created: Your comment successfully added!

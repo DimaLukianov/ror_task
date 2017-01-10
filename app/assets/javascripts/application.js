@@ -22,7 +22,7 @@
 
 document.addEventListener("turbolinks:load", function() {
   $(document).foundation();
-  $("#gallery").lightGallery({
+  $(".gallery").lightGallery({
     selector: '.image',
     zoom: true
   });

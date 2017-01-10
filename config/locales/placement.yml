@@ -12,6 +12,8 @@ en:
     gallery: GALLERY
     delete_confirm_text: You really want delete this placement?
 
+    comment: Enter your comment...
+
     errors:
       already_exist: this placement already exist
       add_comment: You can add comment for this placement
