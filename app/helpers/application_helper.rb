@@ -2,6 +2,7 @@ module ApplicationHelper
   def price(resource)
     "#{('%.2f' % resource.price).to_s} (#{resource.currency.to_s.upcase})"
   end
+  
   def callout(type, info)
     if info.class.to_s == 'Hash'
       title = info[:title] || info['title'] || type.to_s.capitalize

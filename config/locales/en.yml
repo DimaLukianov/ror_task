@@ -23,6 +23,8 @@ en:
   error: Error
   hello: "Hello world"
   confirm: Are you sure?
+  search: Search
+  not_found: Not found
   errors:
     authenticate: You must sign in!
   confirmation: Are you sure?

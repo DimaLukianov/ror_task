@@ -3,8 +3,12 @@ class PlacementsController < ApplicationController
   before_action :set_placement, only: %i[ edit destroy update ]
 
   def index
-    # TODO: add pagination
     @placements = Placement.all
+    if params[:search]
+      @search = params[:search]
+      @placements = @placements.search(@search)
+    end
+    @placements = @placements.page(params[:page]).per(9)
   end
 
   def show

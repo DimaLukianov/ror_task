@@ -2,12 +2,17 @@
   .small-12.columns.text-right
     = link_to 'Add placement', new_placement_path, class: 'button'
   .small-12.columns
-    .row
-      - @placements.each do |placement|
-        .small-12.medium-6.large-4.columns.text-center.placement-cont
-          = link_to placement do
-            .placement
-              = image_tag placement.primary_image.thumb_large, class: 'logo' if placement.images.try(:any?)
-              h4 = placement.title
-              p = truncate(placement.description, length: 30)
-              b = price(placement)
+    - if @placements.try(:any?)
+        .row
+          - @placements.each do |placement|
+            .small-12.medium-6.large-4.columns.text-center.placement-cont
+              = link_to placement do
+                .placement
+                  = image_tag placement.primary_image.thumb_large, class: 'logo' if placement.images.try(:any?)
+                  h4 = placement.title
+                  p = truncate(placement.description, length: 30)
+                  b = price(placement)
+          .small-12.columns.text-center
+            = paginate @placements
+    - else
+      = render 'empty_state'

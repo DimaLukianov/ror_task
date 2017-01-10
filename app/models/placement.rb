@@ -19,6 +19,13 @@ class Placement < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
 
+  scope :search, -> (search) do
+    where('lower(title) LIKE ? OR lower(formatted_address) LIKE ? OR lower(description) LIKE ?',
+      "%#{search.mb_chars.downcase.to_s}%",
+      "%#{search.mb_chars.downcase.to_s}%",
+      "%#{search.mb_chars.downcase.to_s}%")
+    end
+
   def initial
     title[0].upcase
   end

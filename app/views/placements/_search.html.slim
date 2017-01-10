@@ -1,0 +1,9 @@
+= form_tag placements_path, method: :get, class: 'placement_search_form' do
+  .row
+    .small-12.columns
+      .input-group
+        .input-group-field.search-cont
+          = text_field_tag :search, @search, placeholder: t('search'), class: 'search-field'
+          = link_to 'x', placements_path, class: 'cancel-search' if @search
+        .input-group-button
+          = submit_tag t('search'), class: 'button'

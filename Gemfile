@@ -29,6 +29,8 @@ gem 'foundation-rails'
 gem 'mini_magick'
 # image uploading
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+# pagination
+gem 'kaminari'
 
 gem 'geocomplete_rails'
 
