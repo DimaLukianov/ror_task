@@ -22,7 +22,7 @@ module RorTask
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     # custom validators path
-    config.autoload_paths += %W["#{config.root}/app/models/validators/"]
+    config.autoload_paths += %W["#{config.root}/app/validators/"]
     config.assets.paths << Rails.root.join("vendor", "assets", "fonts")
     config.assets.paths << Rails.root.join("vendor", "assets", "images")
   end
